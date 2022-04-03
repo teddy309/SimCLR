@@ -13,6 +13,7 @@
 ```
 $ conda env create --name simclr --file env.yml
 $ conda activate simclr
+$ conda install pytorch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0 cudatoolkit=10.1 -c pytorch
 $ python run.py
 ```
 
