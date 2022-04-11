@@ -13,7 +13,7 @@ model_names = sorted(name for name in models.__dict__
 parser = argparse.ArgumentParser(description='PyTorch SimCLR')
 parser.add_argument('-data', metavar='DIR', default='./datasets',
                     help='path to dataset')
-parser.add_argument('-dataset-name', default='stl10',
+parser.add_argument('--dataset_name', default='stl10',
                     help='dataset name', choices=['stl10', 'cifar10'])
 parser.add_argument('-a', '--arch', metavar='ARCH', default='resnet18',
                     choices=model_names,
@@ -47,13 +47,13 @@ parser.add_argument('--log-every-n-steps', default=100, type=int,
                     help='Log every n steps')
 parser.add_argument('--temperature', default=0.07, type=float,
                     help='softmax temperature (default: 0.07)')
-parser.add_argument('--n-views', default=2, type=int, metavar='N',
+parser.add_argument('--n_views', default=2, type=int, metavar='N',
                     help='Number of views for contrastive learning training.')
-parser.add_argument('--gpu-index', default=0, type=int, help='Gpu index.')
+parser.add_argument('--gpu_index', default=0, type=int, help='Gpu index.')
 
 
 def main():
-    args = parser.parse_args()
+    args = parser.parse_args() #args 파라미터 객체 추가.
     assert args.n_views == 2, "Only two view training is supported. Please use --n-views 2."
     # check if gpu training is available
     if not args.disable_cuda and torch.cuda.is_available():
